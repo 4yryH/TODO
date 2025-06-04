@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
+  <title>Список задач</title>
+</head>
+<body>
+<div class="todo">
+  <header class="todo__header">
+    <h1 class="todo__title">Список задач</h1>
+  </header>
+
+  <main class="todo__main">
+    <section class="todo__input-section">
+      <input class="todo__input" placeholder="Добавить задачу" type="text">
+      <button class="todo__add-button">Добавить задачу</button>
+    </section>
+
+    <section class="todo__list-section">
+      <ul class="todo__list">
+        <!--список задач-->
+      </ul>
+    </section>
+  </main>
+
+  <footer class="todo__footer">
+    <button class="todo__filter-button">Все задачи</button>
+    <button class="todo__filter-button">Выполненные задачи</button>
+    <button class="todo__filter-button">Невыполненные задачи</button>
+  </footer>
+</div>
+<script src="./scripts/main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background: linear-gradient(-45deg, #e0f2fe, #b7c4fc, #dbeafe, #a8ddf6);
+  background-size: 400% 400%;
+  animation: gradientBG 5s ease infinite;
+  height: 100%;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.todo {
+  margin: 32px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.todo__main {
+  width: 100%;
+}
+
+.todo__footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.todo__title {
+  font-size: 40px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.todo__text {
+  font-size: 16px;
+  font-weight: 400;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+  margin-right: auto;
+}
+
+.todo__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo__item {
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px;
+  gap: 8px;
+}
+
+.todo__item:hover {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  border-radius: 8px;
+}
+
+/*отметка выполнения*/
+.todo__checkbox {
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.todo__item--completed > .todo__text {
+  text-decoration: line-through;
+  text-decoration-color: #ff6a6a;
+  color: rgba(77, 77, 77, 0.8);
+}
+
+/*фильтры*/
+.todo__item--hidden {
+  display: none;
+}
+
+button.active {
+  background-color: #3399ff;
+  color: white;
+}
+
+/*кнопки и инпут*/
+.todo__add-button,
+.todo__filter-button {
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 21px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.todo__add-button:hover,
+.todo__filter-button:hover {
+  background: linear-gradient(135deg, #2563eb, #0891b2);
+  transform: translateY(-2px);
+}
+
+.todo__add-button:active,
+.todo__filter-button:active {
+  transform: translateY(0);
+}
+
+.todo__input-section {
+  display: flex;
+  gap: 16px;
+  margin: 16px;
+}
+
+.todo__input {
+  flex-grow: 1;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.todo__button-delete {
+  order: 5;
+  background: linear-gradient(135deg, #ff4e50, #c5a726);
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 78, 80, 0.3);
+}
+
+.todo__button-delete:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(255, 78, 80, 0.5);
+  background: linear-gradient(135deg, #ff6a6a, #ffd86f);
+}
+
+.todo__button-delete:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(255, 78, 80, 0.3);
+}
+
+/*таймер*/
+.todo__timer {
+  order: 3;
+  min-width: 165px;
+}
+
+.todo__button-timer {
+  order: 4;
+}
+
+.todo__button-timer,
+.todo__button-set-timer {
+  /*margin-left: 8px;*/
+  background: linear-gradient(135deg, #f59e0b, #f43f5e);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.todo__button-timer:hover,
+.todo__button-set-timer:hover {
+  transform: scale(1.05);
+}
