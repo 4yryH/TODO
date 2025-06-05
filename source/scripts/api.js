@@ -1,5 +1,5 @@
 import { getTaskById, saveFullTask, getDeletedIds } from './storage.js';
-import { renderTask } from './tasks.js';
+import { renderTask } from './ui.js';
 
 // загрузка задач с сервера
 export async function loadTasks() {
@@ -33,6 +33,37 @@ export async function loadTasks() {
     });
   } catch (err) {
     console.error(`Ошибка загрузки: ${err.message}`);
+    alert(`Ошибка загрузки: ${err.message}`);
     throw err;
+  }
+}
+
+// отправка задачи на сервер
+export async function createTaskOnServer(task) {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      title: task,
+      completed: false,
+      userId: 1
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`Ошибка сервера: ${response.status}`);
+  }
+
+  return await response.json();
+}
+
+// удаление задачи
+export async function deleteTaskFromServer(id) {
+  const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+    method: 'DELETE'
+  });
+
+  if (!response.ok) {
+    throw new Error(`Ошибка удаления задачи ${id} с сервера`);
   }
 }
